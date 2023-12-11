@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- metadata -->
+    <meta name="description" content="Star Road">
+    <meta name="author" content="Your Name">
+    <title>Homepage</title>
+    <!-- Link to CSS files -->
+    <link rel="stylesheet" type="text/css" href="formatting.css">
+    <link rel="stylesheet" type="text/css" href="layout.css">
+
+    <!-- Create and call a JavaScript function that keeps track of the current day and time -->>
+    <script>
+        function getCurrentDateTime() {
+            var currentDateTime = new Date();
+            var day = currentDateTime.getDate();
+            var month = currentDateTime.getMonth() + 1;
+            var year = currentDateTime.getFullYear();
+            var hours = currentDateTime.getHours();
+            var minutes = currentDateTime.getMinutes();
+            var seconds = currentDateTime.getSeconds();
+            
+            var formattedDateTime = "Current Date and Time: " + month + "/" + day + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
+            
+            return formattedDateTime;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <!-- Navigation bar with hypertext links -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h1> Star Road Gaming</h1>
+    </header>
+    <main>
+        <!-- Sectioning and group elements -->
+        <section>
+            <h2>About Us</h2>
+            <p>At Star Road Gaming, we're dedicated to fostering the vibrant and growing world of esports.
+               Whether you're a casual gamer, a professional competitor, or a passionate fan, we have something for you.
+               Our mission is to provide a platform that celebrates the thrill of competitive gaming while connecting players, fans, and sponsors in one epic gaming ecosystem.
+            </p>
+        </section>
+        <section>
+            <h2>What we offer</h2>
+            <ul>
+                <li>
+                    <h3>Compete at the Highest Level</h3>
+                    Join tournaments and leagues in your favorite games, from Fortnite to League of Legends, and prove your skills against the best in the world. With our state-of-the-art infrastructure, you can focus on what you do best: gaming.
+                </li>
+                <li>
+                    <h3>Connect with Your Community</h3>
+                    Esports isn't just about winning; it's about the people you meet along the way. Our platform connects you with like-minded players, allowing you to form teams, create communities, and make lasting friendships.
+                </li>
+                <li>
+                    <h3>Get Sponsored</h3>
+                    For aspiring professionals, we offer opportunities to connect with sponsors and take your gaming career to the next level. Show the world what you're made of and earn recognition and rewards.
+                </li>
+            </ul>
+        </section>
+    </main>
+    <aside>
+        <!-- inline image -->
+        <img src="tournament_pic.jpg" alt="Esports">
+    </aside>
+    <footer>
+        <p>&copy; 2023 Star Road Gaming. All rights reserved.</p>
+    </footer>
+<!--Date and Time-->
+    <p id="datetime"></p>
+    
+    <script>
+        var currentDateTime = getCurrentDateTime();
+        document.getElementById("datetime").innerHTML = currentDateTime;
+    </script>
+    
+    <!--javascript alert-->
+    <button onclick="myFunction()">Try it</button>
+
+    <script>
+    function myFunction() {
+     alert("Hello! Welcome to Star Road Gaming!");
+    }
+    </script>
+
+<!--Math method-->
+<p>Enter two numbers:</p>
+<input type="number" id="num1" placeholder="First number">
+<input type="number" id="num2" placeholder="Second number">
+<button onclick="findMax()">Find Max</button>
+<p id="max"></p>
+
+<script>
+    function findMax() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        var max = Math.max(num1, num2);
+        document.getElementById("max").innerHTML = "The maximum number is: " + max;
+    }
+</script>
+<!--Delay one command or run a command at a specified interval-->>
+<script>
+function delayOneSecond() {
+    console.log("Delayed for 1 second.");
+}
+
+setTimeout(delayOneSecond, 1000);
+</script>
+
+<script>
+function repeatEverySecond() {
+    console.log("Repeated every second.");
+}
+
+setInterval(repeatEverySecond, 1000);
+
+var timeoutId = setTimeout(delayOneSecond, 1000);
+clearTimeout(timeoutId);
+
+var intervalId = setInterval(repeatEverySecond, 1000);
+clearInterval(intervalId);
+</script>
+
+<!--convert number as text-->>
+<script>
+var number = 1234567.89;
+var numberAsText = number.toLocaleString();
+console.log(numberAsText);
+</script>
+
+<!--Countdown-->>
+<button onclick="countdown()">Start Countdown</button>
+
+<h2 id="countdownDisplay">10</h2>
+
+<script>
+    var countdown = function() {
+        var timeleft = 10;
+        var countdownDisplay = document.getElementById("countdownDisplay");
+
+        var countdownInterval = setInterval(function() {
+            timeleft--;
+            countdownDisplay.textContent = timeleft;
+
+            if(timeleft <= 0) {
+                clearInterval(countdownInterval);
+                countdownDisplay.textContent = "Countdown finished!";
+            }
+        }, 1000);
+    }
+</script>
+</body>
+</html>
